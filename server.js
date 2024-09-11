@@ -33,7 +33,7 @@ app.get("/todos/:id", (req, res) => {
 app.post("/todos", (req, res) => {
     let newTask = req.body;
 
-    if (!newTask || Object.keys(newTask).length === 0) {
+    if (!newTask || newTask !== "" || Object.keys(newTask).length === 0) {
         return res.status(400).json({ error: "Task description is required" });
     }
 
