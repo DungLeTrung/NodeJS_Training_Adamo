@@ -32,7 +32,7 @@ app.get("/todos/:id", (req, res) => {
 //CREATE_TODOLIST
 app.post("/todos", (req, res) => {
     let newTask = req.body;
-    
+
     if (!newTask || Object.keys(newTask).length === 0) {
         return res.status(400).json({ error: "Task description is required" });
     }
@@ -66,7 +66,7 @@ app.put("/todos/:id", (req, res) => {
 app.delete("/todos/:id", (req, res) => {
     let index = todos.findIndex((todo) => todo.id === req.params.id)
     console.log(index)
-    if(index > 0) {
+    if(index >= 0) {
         todos.splice(index, 1)  
     } else {
         return res.status(404).json({ error: "Todo ID not found" });
