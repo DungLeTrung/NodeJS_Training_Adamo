@@ -13,3 +13,5 @@ class Person {
 const person1 = new Person('Le', 'Trung Dung', 20, 'Ha Noi');
 person1.fullName();
 
+//OUTPUT: Le Trung Dung
+

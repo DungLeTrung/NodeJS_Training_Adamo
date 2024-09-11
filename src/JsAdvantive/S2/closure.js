@@ -6,3 +6,5 @@ function debug(type){
 
 const log = debug('Mouse');
 log("This record not found");
+
+//OUTPUT: [Mouse] This record not found

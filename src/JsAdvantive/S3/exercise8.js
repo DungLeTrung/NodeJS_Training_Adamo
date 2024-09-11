@@ -6,3 +6,7 @@ function camelize(str) {
 console.log(camelize("background-color"))
 console.log(camelize("background-image"))
 console.log(camelize("-webkit-transition"))
+
+//OUTPUT: backgroundColor
+//        backgroundImage
+//        WebkitTransition

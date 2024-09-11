@@ -6,3 +6,5 @@ function filterRange(arr, a, b) {
 const arrs = [1, 2, 3, 4, 5, 6]
 const filteredNumbers = filterRange(arrs, 2, 5);
 console.log(filteredNumbers)
+
+//OUTPUT: [2, 3, 4, 5]

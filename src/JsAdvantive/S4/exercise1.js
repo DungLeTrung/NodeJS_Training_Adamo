@@ -4,11 +4,11 @@ let user = {
 }
 
 // a) Đọc giá trị thuộc tính name
-const name = user.name
+const name = user?.name
 console.log(name)
 
 // b) Đọc giá trị thuộc tính years
-const age = user.years
+const age = user?.years
 console.log(age)
 
 // c) Đọc giá trị thuộc tính isAdmin

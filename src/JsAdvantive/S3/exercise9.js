@@ -8,4 +8,4 @@ let users = [john, pete, mary]
 let names = users.map((item) => item.name)
 console.log(names)
 
-//[ 'John', 'Peter', 'Mary' ]
+//OUTPUT: [ 'John', 'Peter', 'Mary' ]

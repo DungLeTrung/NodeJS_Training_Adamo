@@ -20,3 +20,5 @@ function count(arr) {
 }
 
 console.log(count(a))
+
+//OUTPUT: 1

@@ -4,4 +4,6 @@ function sort(arr) {
 
 let arr = [5, 2, 1, -10, 8];
 sort(arr)
-console.log(arr); //[8, 5, 2, 1, -10]
+console.log(arr); 
+
+//OUTPUT: [8, 5, 2, 1, -10]

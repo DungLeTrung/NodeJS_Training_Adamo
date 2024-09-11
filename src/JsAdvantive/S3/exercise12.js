@@ -11,4 +11,4 @@ const infors = [
 
 console.log(getAverageAge(infors));
 
-//20
+//OUTPUT: 20

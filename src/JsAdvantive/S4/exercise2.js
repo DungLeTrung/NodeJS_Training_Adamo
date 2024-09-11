@@ -1,3 +1,4 @@
+//Dạng key: value
 let people = {
     Ana: 25,
     Alex: 28, 
@@ -12,6 +13,7 @@ function topAge(people){
     let maxAge = 0
     let oldestPerson
 
+    //Dung for in để lặp qua key
     for (const person in people){
         if(people[person] > maxAge){
             maxAge = people[person];
@@ -22,3 +24,5 @@ function topAge(people){
 }
 
 console.log(topAge(people))
+
+//OUTPUT: Alex

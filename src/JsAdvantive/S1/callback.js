@@ -15,3 +15,5 @@ function double(num) {
 const numbers = [1, 2, 3, 4];
 const doubledNumbers = transform(numbers, double);
 console.log(doubledNumbers);
+
+//OUTPUT: [2, 4, 6, 8]

@@ -14,3 +14,5 @@ class SinhVien {
   const fullname = sinhVienA.fullName.bind(sinhVienA);
   
   fullname();
+
+  //OUTPUT: Tên đầy đủ: Le Trung Dung

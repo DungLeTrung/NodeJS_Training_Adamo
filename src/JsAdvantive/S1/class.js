@@ -17,3 +17,6 @@ const sinhVien2 = new SinhVien('Nguye', 'Thi Dieu Linh', 21, 'Ho Chi Minh');
 
 sinhVien1.studying("Toán")
 sinhVien2.studying("Văn")
+
+//OUTPUT: Le Trung Dung đi học Toán
+//        Nguyen Thi Dieu Linh đi học Văn

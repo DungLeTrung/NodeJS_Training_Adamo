@@ -11,3 +11,5 @@ function count(a) {
 } 
 
 console.log(count(a))
+
+//OUTPUT: [ { '1': 3 }, { '2': 1 }, { '3': 2 }, { '4': 1 }, { '8': 2 } ]
