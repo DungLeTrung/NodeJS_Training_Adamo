@@ -8,16 +8,19 @@ const app = express();
 app.use(bodyParser.json());
 
 //Application-level middleware
-app.use("/todos", function(req, res, next) {
-    console.log(req.method)
-    next()
-})
+// app.use("/todos", (req, res, next) => {
+//     console.log(req.originalUrl)
+//     next()
+// }, (req, res, next) => {
+//     console.log(req.method)
+//     next()
+// })
 
-//Api waiting
-app.get("/todos", function(req, res, next) {
-    console.log(req.method)
+//Error-handling middleware
+app.use(function(err, req, res, next) {
+    console.log(err.stack)
+    res.status(500).send('Something went wrong!!!')
 })
-
 
 const todos = [
     { id: uuid.v4(), description: "Write your daily tasks!!!", completed: true},
@@ -43,7 +46,7 @@ app.get("/todos/:id", (req, res) => {
 app.post("/todos", (req, res) => {
     let newTask = req.body;
 
-    if (!newTask || newTask !== "" || Object.keys(newTask).length === 0) {
+    if (!newTask || Object.keys(newTask).length === 0 || !newTask.description || newTask.description.trim() === '') {
         return res.status(400).json({ error: "Task description is required" });
     }
 

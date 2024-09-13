@@ -1,4 +1,5 @@
 const express = require("express");
+//Router-level middleware
 const router = express.Router();
 
 router.get('/', (req, res) => {
