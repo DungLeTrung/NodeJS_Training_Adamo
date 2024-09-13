@@ -17,10 +17,16 @@ app.use(bodyParser.json());
 // })
 
 //Error-handling middleware
-app.use(function(err, req, res, next) {
-    console.log(err.stack)
-    res.status(500).send('Something went wrong!!!')
-})
+app.get("/causeerror", (req, res, next) => {
+    const error = new Error('Lỗi phát sinh từ route!');
+    next(error);  // Chuyển lỗi đến middleware xử lý lỗi
+});
+
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500).json({  
+        message: err.message,  
+    });
+});
 
 const todos = [
     { id: uuid.v4(), description: "Write your daily tasks!!!", completed: true},
