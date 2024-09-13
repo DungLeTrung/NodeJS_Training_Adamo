@@ -7,7 +7,17 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
-app.use("/api/example", example)
+//Application-level middleware
+app.use("/todos", function(req, res, next) {
+    console.log(req.method)
+    next()
+})
+
+//Api waiting
+app.get("/todos", function(req, res, next) {
+    console.log(req.method)
+})
+
 
 const todos = [
     { id: uuid.v4(), description: "Write your daily tasks!!!", completed: true},
@@ -73,6 +83,8 @@ app.delete("/todos/:id", (req, res) => {
     }
     res.status(201).json({newTask: todos });
 } )
+
+app.use("/api/example", example)
 
 const PORT = process.env.PORT ||3000;
 
