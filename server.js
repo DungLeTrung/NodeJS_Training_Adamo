@@ -5,10 +5,9 @@ const uuid = require('uuid');
 const bodyParser = require('body-parser');
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-
+//Third-party middleware
+app.use(bodyParser.json());
 
 //Built-in middleware
 // app.use(express.json()) //Phân tích dữ liệu JSON đến từ body request (biến đổi từ JSON -> Object)
