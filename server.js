@@ -5,7 +5,14 @@ const uuid = require('uuid');
 const bodyParser = require('body-parser');
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+
+//Built-in middleware
+// app.use(express.json()) //Phân tích dữ liệu JSON đến từ body request (biến đổi từ JSON -> Object)
+// app.use(express.urlencoded({ extended: true })) //Phân tích dữ liệu từ form-encoded (Dữ liệu dạng key-value -> Object)
 
 //Application-level middleware
 // app.use("/todos", (req, res, next) => {
@@ -17,16 +24,16 @@ app.use(bodyParser.json());
 // })
 
 //Error-handling middleware
-app.get("/causeerror", (req, res, next) => {
-    const error = new Error('Lỗi phát sinh từ route!');
-    next(error);  // Chuyển lỗi đến middleware xử lý lỗi
-});
+// app.get("/causeerror", (req, res, next) => {
+//     const error = new Error('Lỗi phát sinh từ route!');
+//     next(error);  // Chuyển lỗi đến middleware xử lý lỗi
+// });
 
-app.use(function (err, req, res, next) {
-    res.status(err.status || 500).json({  
-        message: err.message,  
-    });
-});
+// app.use(function (err, req, res, next) {
+//     res.status(err.status || 500).json({  
+//         message: err.message,  
+//     });
+// });
 
 const todos = [
     { id: uuid.v4(), description: "Write your daily tasks!!!", completed: true},
@@ -51,6 +58,7 @@ app.get("/todos/:id", (req, res) => {
 //CREATE_TODOLIST
 app.post("/todos", (req, res) => {
     let newTask = req.body;
+    console.log(newTask)
 
     if (!newTask || Object.keys(newTask).length === 0 || !newTask.description || newTask.description.trim() === '') {
         return res.status(400).json({ error: "Task description is required" });
